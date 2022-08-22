@@ -1,0 +1,118 @@
+
+<div *ngIf="!pais; else divPais"
+    class="alert alert-info">
+    Espere por favor...
+</div>
+
+<ng-template #divPais>
+    <div class="row">
+        
+        <div class="col-12">
+            <h1>País: <small>{{pais[0].name.common}}</small> </h1>
+        </div>
+   
+    </div>
+
+    <div class="row">
+        
+        <div class="col-4">
+            <h3>Bandera</h3>
+            <img class="img-thumbnail mb-1" [src]="pais[0].flags.svg">                       
+            <img class="img-thumbnail mb-1" [src]="pais[0].coatOfArms.svg">
+            <a href="{{pais[0].maps.googleMaps}}">Google Maps</a>
+            <hr>
+            <a href="{{pais[0].maps.openStreetMaps}}">Open Street</a> 
+            <hr>
+            <div class="list-group">
+          
+                <li class="list-group-item">
+                    <strong>Código Postal: {{pais[0].postalCode.format}}</strong>
+                </li>
+            </div>
+        </div>
+        <div class="col">
+            <h3>Información</h3>
+            <div class="list-group">
+                
+                <li class="list-group-item">
+                    <strong>Capital: </strong>{{pais[0].capital}}
+                </li>
+                <li class="list-group-item">
+                    <strong>Sub region: </strong>{{pais[0].subregion}}
+                </li>
+                <li class="list-group-item">
+                    <strong>Región: </strong>{{pais[0].region}}
+                </li>
+                <li class="list-group-item">
+                    <strong>Populación: </strong>{{pais[0].population | number}}
+                </li>
+                <li class="list-group-item">
+                    <strong>Moneda: </strong>{{pais[0].currencies | json}}
+                </li>               
+                <li class="list-group-item">
+                    <strong>Lenguaje: </strong>{{pais[0].languages | json}}
+                </li> 
+                <li class="list-group-item">
+                    <strong>Comienzo de Semana: {{pais[0].startOfWeek}}</strong>
+                </li>
+            </div>
+        </div>
+
+        
+        <div class="col">    
+            <h3>Información Adicional</h3>     
+            <div class="list-group">
+                <li class="list-group-item">
+                    <strong>Estado independiente: </strong>{{pais[0].independent}}
+                </li>
+                <li class="list-group-item">
+                    <strong>Miembro de UN </strong>{{pais[0].independent}}
+                </li>  
+                <li class="list-group-item">
+                    <strong>Coeficiente Gini </strong>{{pais[0].gini}}
+                </li>  
+                <li class="list-group-item">
+                    <strong>Latitud y Longitud </strong>{{pais[0].latlng}}
+                </li>  
+                <li class="list-group-item">
+                    <strong>Bordes Fronterizos </strong>{{pais[0].borders}}
+                </li>  
+                <li class="list-group-item">
+                    <strong>Bordes Fronterizos </strong>{{pais[0].area}} km²
+                </li>  
+            </div>
+        </div>
+
+        <div class="col">
+            <h3>Traducciones</h3>
+            <div class="col">
+                <span class="badge bg-primary me-1">   {{pais[0].translations['ara'].official}}</span>    
+                <span class="badge bg-primary me-1">   {{pais[0].translations['ces'].official}}</span> 
+                <span class="badge bg-primary me-1">   {{pais[0].translations['cym'].official}}</span>             
+                <span class="badge bg-primary me-1">   {{pais[0].translations['deu'].official}}</span>             
+                <span class="badge bg-primary me-1">   {{pais[0].translations['est'].official}}</span>             
+                <span class="badge bg-primary me-1">   {{pais[0].translations['fin'].official}}</span>             
+                <span class="badge bg-primary me-1">   {{pais[0].translations['fra'].official}}</span>             
+                <span class="badge bg-primary me-1">   {{pais[0].translations['hrv'].official}}</span>             
+                <span class="badge bg-primary me-1">   {{pais[0].translations['hun'].official}}</span>             
+                <span class="badge bg-primary me-1">   {{pais[0].translations['ita'].official}}</span>             
+                <span class="badge bg-primary me-1">   {{pais[0].translations['kor'].official}}</span>             
+                <span class="badge bg-primary me-1">   {{pais[0].translations['nld'].official}}</span>             
+                <span class="badge bg-primary me-1">   {{pais[0].translations['per'].official}}</span>             
+                <span class="badge bg-primary me-1">   {{pais[0].translations['pol'].official}}</span>             
+                <span class="badge bg-primary me-1">   {{pais[0].translations['rus'].official}}</span>             
+                <span class="badge bg-primary me-1">   {{pais[0].translations['slk'].official}}</span>             
+                <span class="badge bg-primary me-1">   {{pais[0].translations['spa'].official}}</span>             
+          
+            </div>
+        </div>
+        <!-- mostrar objeto y atributos-->
+        <!-- <h3>Objeto JSON</h3>
+        <pre class="mt-5">
+            {{pais | json}}       
+        </pre> -->
+
+   
+    </div>
+</ng-template>
+

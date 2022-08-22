@@ -1,0 +1,35 @@
+<div class="animate__animated animate__fadeIn">
+    <h2>Por País</h2>
+    <hr>
+
+    <div class="row">
+        <div class="col">
+            <app-pais-input (onEnter)="buscar( $event )" (onDebounce)="sugerencias($event)"
+                placeholder="Buscar por país...">
+            </app-pais-input>
+        </div>
+        <!--col aplica para todas las columnas 12 en total-->
+    </div>
+
+</div>
+
+<hr>
+
+
+<div class="animate__animated animate__fadeIn">
+    <!--Por medio de directiva *ngIf podemos utilizar el boolean en el componente para manejar el error-->
+    <div *ngIf="hayError" class="alert alert-danger">
+        No se encontró nada con el término {{termino}}
+    </div>
+
+
+    <!--Si no hay error no muestra tabla-->
+    <div *ngIf="paises.length>0" class="row">
+        <div class="col">
+
+            <app-pais-tabla [paises]="paises"></app-pais-tabla>
+
+        </div>
+    </div>
+
+</div>
